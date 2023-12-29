@@ -1,0 +1,37 @@
+//------第一问------
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
+int var = 0;
+int main() {
+	
+	printf("%d\n",var);
+	__asm {
+		//mov ax, cs;
+		//mov ds, ax;//为什么将这两行代码注销后编译正确, 反之编译错误
+		mov edx, 30;
+		mov dword ptr ds : [var] , edx;//key
+	}
+	printf("%d\n",var);
+}
+
+//------第二问------
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
+
+int main() {
+	int var = 0;
+	printf("%d\n",var);
+	__asm {
+		mov ax, cs;
+		mov ds, ax;
+		mov edx, 1;
+		mov dword ptr ds : [var] , edx;
+		//mov ax, es;
+		//mov ds, ax;//为什么将这两行代码注销后编译错误, 加上后编译正确
+	}
+	printf("%d\n"，var);
+}
