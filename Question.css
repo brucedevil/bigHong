@@ -9,7 +9,7 @@ int main() {
 	printf("%d\n",var);
 	__asm {
 		//mov ax, cs;
-		//mov ds, ax;//为什么将这两行代码注销后编译正确, 反之编译错误, 猜测是CS的DPL要求进0环, 而此时程序的CPL在3环, 权限不够
+		//mov ds, ax;//为什么将这两行代码注销后编译正确, 反之编译错误, CS寄存器只允许读操作, 此时DS相当于CS寄存器却要进行写操作, 所以错误
 		mov edx, 30;
 		mov dword ptr ds : [var] , edx;//key
 	}
