@@ -9,3 +9,15 @@ int main()
 	sum_p = sum;
 	printf("%d\n",sum_p(100,100));
 }
+
+//************指针函数************
+//指针函数: 函数的返回值类型为指针的函数就是指针函数
+#include<stdio.h>
+int* sum(int a, int b) {
+	int c=a + b;
+	return &c;//把函数堆栈中的数据的地址返回
+}
+int main()
+{
+	printf("%x\n",sum(100,100));
+}
