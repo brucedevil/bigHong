@@ -1,0 +1,10 @@
+//命名空间
+namespace t {
+	int value;
+}//普通命名空间
+int p;//全局命名空间
+int main() {
+	t::value = 3;//普通命名空间使用
+	::p = 6;//全局命名空间使用
+	cout << ::p << t::value;
+}
